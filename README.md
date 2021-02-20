@@ -29,11 +29,6 @@ ROS binary distribution.
       filesystem at runtime. Bazel-built binaries will probably just not be found by such tools.
 - [ ] Actions, services, `dynamic_reconfigure` and probably other less-known message-based stuff.
 
-This code is not supported in any way, and probably not recommended for
-production use.  I just wanted to see if there was an easier way to onboard ROS
-teams to Bazel without having to maintain a whole separate build system for
-ROS.
-
 ## Try it out
 
 Get a shell in the docker environment:
@@ -42,12 +37,12 @@ Get a shell in the docker environment:
 
 Start a talker node with custom messages:
 
-    bazel run //src/talker
+    bazel run //src/talker --host_force_python=PY3
 
 ## How it works
 
 It uses a Bazel [repository
 rule](https://docs.bazel.build/versions/master/skylark/repository_rules.html)
-to parse the ROS installation under `/opt/ros/melodic` and produce Bazel BUILD
+to parse the ROS installation under `/opt/ros/noetic` and produce Bazel BUILD
 files and repositories. For example, `roscpp` becomes a `@roscpp` Bazel target
 that add the correct link and compile flags.

@@ -8,7 +8,7 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 import_ros_workspace(
     name = "ros_ws",
-    path = "/opt/ros/melodic",
+    path = "/opt/ros/noetic",
 )
 
 load("@ros_ws//:workspace.bzl", "ros_repositories")
